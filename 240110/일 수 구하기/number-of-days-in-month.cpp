@@ -1,27 +1,29 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
-	int a;
+    // 변수 선언
+    int n;
 
-	cin >> a;
-
-	if (a % 2 == 0) {
-		if (a < 8) {
-			cout << 31;
-		}
-		else {
-			cout << 30;
-		}
+	// 입력
+	cin >> n;
+    
+    // 출력
+    if(n == 2)
+		cout << "28";
+	else if(n <= 7) {
+    	if(n % 2 == 1)
+        	cout << "31";
+    	else
+        	cout << "30";
 	}
-	if (a % 2 == 1) {
-		if (a == 2) {
-			cout << 28;
-		}
-		else if (a < 8) {
-			cout << 31;
-		}
+	else {
+    	if(n % 2 == 0)
+        	cout << "31";
+    	else
+        	cout << "30";
 	}
-
-
-	return 0;
+	
+    return 0;
+}
