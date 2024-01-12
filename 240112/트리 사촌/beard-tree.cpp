@@ -10,12 +10,15 @@ int par[MAX_N + 1];
 
 int ans; // 사촌 노드의 개수
 int n, k;
+int finding_node;
 
 int main() {
 	cin >> n >> k;
 
 	for (int i = 1; i <= n; i++) {
 		cin >> a[i];
+		if (a[i] == k)
+			finding_node = i;
 	}
 
 	int par_node = 0;
@@ -27,9 +30,9 @@ int main() {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		if (!par[par[i]] || !par[par[k]]) continue;
+		if (!par[par[i]] || !par[par[finding_node]]) continue;
 
-		if (par[i] != par[k] && par[par[i]] == par[par[k]]) ans++;
+		if (par[i] != par[finding_node] && par[par[i]] == par[par[finding_node]]) ans++;
 	}
 
 	cout << ans;	
