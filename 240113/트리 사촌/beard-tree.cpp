@@ -29,11 +29,6 @@ int main() {
 		par[i] = par_node;
 	}
 
-
-	for (int i = 1; i <= n; i++) {
-		cout << par[i] << endl;
-	}
-
 	for (int i = 1; i <= n; i++) {
 		// 부모의 부모 노드가 존재하지 않는 경우 (루트의 부모 노드: 0)
 		if (!par[par[i]] || !par[par[finding_node]]) continue;
