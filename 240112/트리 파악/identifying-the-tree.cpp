@@ -8,8 +8,8 @@ using namespace std;
 vector<int> edges[MAX_N + 1];
 
 bool visited[MAX_N + 1];
-int par[MAX_N + 1];
-vector<int> leafs;
+int dep[MAX_N + 1];
+int ans;
 
 void dfs(int x) {
 	visited[x] = true;
@@ -20,11 +20,11 @@ void dfs(int x) {
 			continue;
 		}
 		is_leaf = false;
-		par[y] = x;
+		dep[y] = dep[x] + 1;
 		dfs(y);
 	}
 	if (is_leaf) {
-		leafs.push_back(x);
+		ans += dep[x];
 	}
 }
 
@@ -41,27 +41,9 @@ int main() {
 	}
 
 	dfs(1);
-
-
-	bool turn = true; // true면 a차례, false면 b차례
-	int cur;
-	for (int i = 0; i < leafs.size(); i++) {
-		cur = leafs[i];
-		while (true) {
-			if (cur == 1) {
-				break;
-			}
-			cur = par[cur];
-			turn = !turn;
-		}
-	}
-
-	if (turn) {
-		cout << 0;
-	}
-	else {
-		cout << 1;
-	}
+	
+	if (ans % 2) cout << 1;
+	else cout << 0;
 
 
 	return 0;
