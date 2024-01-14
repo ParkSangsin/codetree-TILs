@@ -5,16 +5,16 @@ using namespace std;
 int n, k;
 int a[MAX_N + 1]; // 중위 순회한 순서대로 노드 번호 저장
 int tree_num[MAX_N + 1]; // 이진 트리 순서대로 노드 번호 저장
-int cnt = 1;
+int cnt = 1; // 현재 처리 중인 중위 순회 순서 노드 번호
 
-void inorder(int x) {
-
+// tree_num (빈 트리)를 중위 순회하며 
+void inorder(int x) { // x는 이진 트리 순서 번호 (루트: 1)
 	if (x > n) {
 		return;
 	}
-
 	inorder(x * 2); // 왼쪽 자식 중위 순회
-	tree_num[x] = a[cnt++]; // 루트 노드 저장
+	tree_num[x] = a[cnt++];
+	cout << tree_num[x] << endl;
 	inorder(x * 2 + 1); // 오른쪽 자식 중위 순회
 
 }
