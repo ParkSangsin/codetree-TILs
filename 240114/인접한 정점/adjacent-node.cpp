@@ -31,7 +31,7 @@ void dfs(int x) {
 	for (int i = 0; i < edges[x].size(); i++) {
 		int y = edges[x][i];
 		if (par[y] == x) {
-			dp[x][0] += dp[y][1];
+			dp[x][0] += max(dp[y][0], dp[y][1]);
 			dp[x][1] += dp[y][0];
 		}
 	}
