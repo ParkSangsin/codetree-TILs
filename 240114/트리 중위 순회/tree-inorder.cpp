@@ -14,7 +14,6 @@ void inorder(int x) { // x는 이진 트리 순서 번호 (루트: 1)
 	}
 	inorder(x * 2); // 왼쪽 자식 중위 순회
 	tree_num[x] = a[cnt++];
-	cout << tree_num[x] << endl;
 	inorder(x * 2 + 1); // 오른쪽 자식 중위 순회
 
 }
