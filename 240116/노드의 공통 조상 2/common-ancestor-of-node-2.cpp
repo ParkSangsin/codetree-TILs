@@ -12,10 +12,10 @@ using namespace std;
 int n, root;
 int a, b; // 공통 조상을 구할 노드
 int q; // 질의 횟수
-bool visited[MAX_N];
-int par[MAX_H][MAX_N]; // par[i][j]: j번 노드에서 부모로 2^i번 이동 했을 때 조상 노드
-int depth[MAX_N]; // depth[i]: i번 노드의 깊이
-vector<int> edges[MAX_N];
+bool visited[MAX_N + 1];
+int par[MAX_H + 1][MAX_N + 1]; // par[i][j]: j번 노드에서 부모로 2^i번 이동 했을 때 조상 노드
+int depth[MAX_N + 1]; // depth[i]: i번 노드의 깊이
+vector<int> edges[MAX_N + 1];
 
 void dfs(int x) {
 	visited[x] = true;
