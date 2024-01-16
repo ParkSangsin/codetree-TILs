@@ -6,8 +6,8 @@
 
 using namespace std;
 
-#define MAX_N 50000
-#define MAX_H 16
+#define MAX_N 100000
+#define MAX_H 17
 
 int n, root;
 int a, b; // 공통 조상을 구할 노드
