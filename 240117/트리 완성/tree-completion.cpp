@@ -45,7 +45,6 @@ int main() {
 	for (int i = 2; i <= n; i++) {
 		if (root != find(i)) {
 			union_(i, root);
-			root = find(i);
 			cnt++;
 		}
 	}
