@@ -8,6 +8,7 @@ int n, m;
 char q;
 int a, b;
 int uf[MAX_N + 1];
+int cnt; // 그래프 내 트리 개수
 
 int find(int x) {
 	if (uf[x] == x) {
@@ -36,17 +37,10 @@ int main() {
 
 	for (int i = 1; i <= m; i++) {
 		cin >> a >> b;
-		union_(a, b);
-	}
-
-	int root = find(1);
-	int cnt = 0;
-
-	for (int i = 2; i <= n; i++) {
-		if (root != find(i)) {
-			union_(i, root);
+		if (find(a) != find(b)) {
 			cnt++;
-		}
+			union_(a, b);
+		}	
 	}
-	cout << cnt;
+	cout << n - 1 - cnt + (m - cnt);
 }
