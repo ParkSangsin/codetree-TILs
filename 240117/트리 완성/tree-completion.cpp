@@ -42,13 +42,12 @@ int main() {
 	int root = find(1);
 	int cnt = 0;
 
-	for (int i = 1; i <= n; i++) {
+	for (int i = 2; i <= n; i++) {
 		if (root != find(i)) {
 			union_(i, root);
+			root = find(i);
 			cnt++;
 		}
 	}
-
 	cout << cnt;
-
 }
