@@ -54,11 +54,24 @@ int main() {
 		int x, y, cost;
 		tie(cost, x, y) = edges[i];
 
-		if (find(x) != find(y) and arr[x] != arr[y]) {// 같은 연결 요소가 아니라면
+		if (find(x) != find(y) && arr[x] != arr[y]) {// 같은 연결 요소가 아니라면
 			ans += cost;
 			union_(x, y);
 		}
 	}
-	cout << ans;
+	
+
+	bool is_connected = true;
+	int root = find(1);
+	for (int i = 2; i <= n; i++) {
+		if (root != find(i)) {
+			is_connected = false;
+			break;
+		}
+	}
+
+	if (is_connected) cout << ans;
+	else cout << -1;
+
 	return 0;
 }
