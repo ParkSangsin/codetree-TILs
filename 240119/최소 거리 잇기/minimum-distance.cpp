@@ -8,7 +8,7 @@ using namespace std;
 
 #define MAX_N 200
 
-int n; // 가로 줄 간선 개수, 세로 줄 간선 개수
+int n, m; // 가로 줄 간선 개수, 세로 줄 간선 개수
 double res;
 
 vector<tuple<double, int, int>> edges;
