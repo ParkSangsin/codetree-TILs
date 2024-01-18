@@ -8,7 +8,7 @@ using namespace std;
 
 #define MAX_N 200
 
-int n, m; // 가로 줄 간선 개수, 세로 줄 간선 개수
+int n; // 가로 줄 간선 개수, 세로 줄 간선 개수
 double res;
 
 vector<tuple<double, int, int>> edges;
@@ -34,7 +34,7 @@ int main() {
 	cin >> n >> m;
 
 	// uf 초기 설정
-	for (int i = 1; i <= n * m; i++) {
+	for (int i = 1; i <= n; i++) {
 		uf[i] = i;
 	}
 
