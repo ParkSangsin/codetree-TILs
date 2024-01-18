@@ -69,7 +69,6 @@ int main() {
 
 		union_(a, b);
 		res += w;
-		cout << res << " ";
 	}
 
 	cout << res;
