@@ -11,7 +11,7 @@ using namespace std;
 int n, m; // 가로 줄 간선 개수, 세로 줄 간선 개수
 double res;
 
-vector<tuple<int, int, int>> edges;
+vector<tuple<double, int, int>> edges;
 
 int uf[MAX_N + 1]; // ux[i]: i번 노드가 가리키는 노드
 pair<int, int> coord[MAX_N + 1];
