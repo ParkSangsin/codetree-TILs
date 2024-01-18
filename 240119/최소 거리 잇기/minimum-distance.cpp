@@ -49,13 +49,12 @@ int main() {
 	for (int i = 1; i <= m; i++) {
 		int a, b;
 		cin >> a >> b; // a - b 간선 정보
-		if (find(a) == find(b)) continue;
 		union_(a, b);
 	}
 
 	// 모든 경우의 간선 정보를 edges에 저장
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= n; j++) {
+		for (int j = i + 1; j <= n; j++) {
 			int x1, y1, x2, y2;
 			tie(x1, y1) = coord[i];
 			tie(x2, y2) = coord[j];
