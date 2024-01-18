@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define MAX_N 301
+#define MAX_N 90000
 
 int n, m; // 가로 줄 간선 개수, 세로 줄 간선 개수
 int res;
@@ -15,7 +15,7 @@ vector<tuple<int, int, int>> edges;
 int uf[MAX_N + 1]; // ux[i]: i번 노드가 가리키는 노드
 
 // x의 루트를 반환하는 함수
-int find(int x) { 
+int find(int x) {
 	if (x == uf[x]) return x;
 	uf[x] = find(uf[x]); // 돌아올 때 찾은 루트에 열결
 	return uf[x];
@@ -25,7 +25,7 @@ int find(int x) {
 void union_(int x, int y) {
 	x = find(x);
 	y = find(y);
-	uf[x] = y; 
+	uf[x] = y;
 }
 
 int main() {
@@ -69,6 +69,7 @@ int main() {
 
 		union_(a, b);
 		res += w;
+		cout << res << " ";
 	}
 
 	cout << res;
