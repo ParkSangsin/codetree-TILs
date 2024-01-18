@@ -68,7 +68,8 @@ int main() {
 	sort(edges.begin(), edges.end());
 
 	for (int i = 0; i < edges.size(); i++) {
-		int a, b, w; // a - b 가중치 w
+		int a, b;
+		double w; // a - b 가중치 w
 		tie(w, a, b) = edges[i];
 
 		if (find(a) == find(b)) continue;
