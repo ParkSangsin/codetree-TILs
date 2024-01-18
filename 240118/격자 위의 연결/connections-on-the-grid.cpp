@@ -12,7 +12,7 @@ int res;
 
 vector<tuple<int, int, int>> edges;
 
-int uf[MAX_N]; // ux[i]: i번 노드가 가리키는 노드
+int uf[MAX_N + 1]; // ux[i]: i번 노드가 가리키는 노드
 
 // x의 루트를 반환하는 함수
 int find(int x) { 
@@ -69,6 +69,7 @@ int main() {
 
 		union_(a, b);
 		res += w;
+		cout << res << " ";
 	}
 
 	cout << res;
