@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define MAX_N 200
+#define MAX_N 10000
 
 int n, m; // 가로 줄 간선 개수, 세로 줄 간선 개수
 double res;
