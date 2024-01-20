@@ -53,11 +53,11 @@ int main() {
 	int ans = 0;
 	for (int i = 1; i <= n; i++) {
 
-		int min_idx = 0; // 아직 방문하지 않은 정점 중 비용이 가장 작은 노드
+		int min_idx = -1; // 아직 방문하지 않은 정점 중 비용이 가장 작은 노드
 		for (int j = 1; j <= n; j++) {
 			if (visited[j]) continue;
 
-			if (dist[min_idx] > dist[j]) {
+			if (min_idx == -1 || dist[min_idx] > dist[j]) {
 				min_idx = j;
 			}
 		}
