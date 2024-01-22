@@ -47,8 +47,8 @@ int main() {
 		}
 	}
 
-	if (cnt == n) cout << "Exists";
-	else cout << "Not Exists";
+	if (cnt == n) cout << "Not Exists";
+	else cout << "Exists";
 
 	return 0;
 }
