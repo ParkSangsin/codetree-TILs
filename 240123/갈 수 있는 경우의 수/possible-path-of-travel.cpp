@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define MAX_N 10000
+#define MAX_N 100000
 
 int n, m; // 노드 개수
 
