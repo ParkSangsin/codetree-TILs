@@ -9,11 +9,11 @@ using namespace std;
 #define MAX_N 200020
 
 string temp, str;
-int n; // str의 크기
+long long n; // str의 크기
 
 int A[MAX_N];// A[i]: i인덱스를 중심으로 하는 펠린드롬 중 가장 긴 펠린드롬의 길이
 
-long long cnt;
+int cnt;
 
 int main() {
 	cin >> temp;
@@ -40,18 +40,13 @@ int main() {
 			A[i]++;
 		}
 
+		cnt += (A[i] + 1) / 2;
+
 		if (r < i + A[i]) {
 			r = i + A[i];
 			p = i;
 		}
 
-	}
-
-	for (int i = 0; i < n; i++) {
-		int len = 2 * A[i] + 1; // 펠린드롬의 길이
-		int l = len / 2; // #을 뺀 펠린드롬의 길이
-		
-		cnt += (l + 1) / 2; // 만들 수 있는 펠린드롬 개수
 	}
 
 	cout << cnt;
