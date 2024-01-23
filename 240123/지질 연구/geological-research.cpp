@@ -18,7 +18,7 @@ int dp[MAX_N + 1]; // 1번 노드에서 i번 노드로 이동 가능한 경우�
 
 int res = 1;
 
-bool max_[MAX_N + 1];
+int max_cnt[MAX_N + 1];
 
 int main() {
 	cin >> n >> m;
@@ -47,15 +47,18 @@ int main() {
 
 			if (dp[y] < dp[x]) {
 				dp[y] = dp[x];
+				max_cnt[y] = 1;
 			}
 			else if (dp[y] == dp[x]) {
-				dp[y] = dp[x] + 1;
+				max_cnt[y]++;
 			}
-
-			res = max(res, dp[y]);
 			
 			indegree[y]--;
 			if (indegree[y] == 0) {
+				if (max_cnt[y] > 1) {
+					dp[y]++;
+				}
+				res = max(res, dp[y]);
 				q.push(y);
 			}
 		}
