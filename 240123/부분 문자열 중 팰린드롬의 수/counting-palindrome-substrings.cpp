@@ -40,13 +40,17 @@ int main() {
 			A[i]++;
 		}
 
-		cnt += (A[i] + 1) / 2;
-
 		if (r < i + A[i]) {
 			r = i + A[i];
 			p = i;
 		}
 
+	}
+
+	for (int i = 0; i < n; i++) {
+
+		
+		cnt += (A[i] + 1) / 2; // 만들 수 있는 펠린드롬 개수
 	}
 
 	cout << cnt;
