@@ -45,12 +45,12 @@ int main() {
 		for (int i = 0; i < edges[x].size(); i++) {
 			int y = edges[x][i];
 
-			if (dp[y] == dp[x] && max_[y] == false) {
-				dp[y] = dp[x] + 1;
-				max_[y] = true;
+			if (dp[y] < dp[x]) {
+				dp[y] = dp[x];
 			}
-
-			dp[y] = max(dp[x], dp[y]);
+			else if (dp[y] == dp[x]) {
+				dp[y] = dp[x] + 1;
+			}
 
 			res = max(res, dp[y]);
 			
