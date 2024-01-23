@@ -18,6 +18,8 @@ int dp[MAX_N + 1]; // 1번 노드에서 i번 노드로 이동 가능한 경우�
 
 int res = 1;
 
+bool max_[MAX_N + 1];
+
 int main() {
 	cin >> n >> m;
 
@@ -43,8 +45,9 @@ int main() {
 		for (int i = 0; i < edges[x].size(); i++) {
 			int y = edges[x][i];
 
-			if (dp[y] == dp[x]) {
+			if (dp[y] == dp[x] && max_[y] == false) {
 				dp[y] = dp[x] + 1;
+				max_[y] = true;
 			}
 
 			dp[y] = max(dp[x], dp[y]);
