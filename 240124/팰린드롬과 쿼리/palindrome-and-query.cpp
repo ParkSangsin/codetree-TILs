@@ -54,8 +54,9 @@ int main() {
 		b = 2 * b - 1;
 		
 		idx = (a + b) / 2;
+		// int len = 2 * A[idx] + 1; //
 		//cout << idx << " " << A[idx] << " " << (a + b) / 2 << "\n";
-		if (A[idx] == (a + b) / 2) cout << "Yes" << "\n";
+		if (A[idx] >= (a + b) / 2) cout << "Yes" << "\n";
 		else cout << "No" << "\n";
 	}
 
