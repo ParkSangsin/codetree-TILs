@@ -14,6 +14,8 @@ vector<int> edges[MAX_N + 1];
 int indegree[MAX_N + 1];
 queue<int> q;
 
+int dp[MAX_N + 1]; // 1번 노드에서 i번 노드로 이동 가능한 경우의 수
+
 int main() {
 	cin >> n >> m;
 
@@ -24,26 +26,31 @@ int main() {
 		indegree[b]++;
 	}
 
-	q.push(1);
+	for (int i = 1; i <= n; i++) {
+		if (indegree[i] == 0) {
+			q.push(i);
+		}
+	}
 
-	int cnt = 0;
+	dp[1] = 1; // 초기 값 설정: 1번 노드에서 1번노드로 이동 가능한 경우의 수는 1
 
 	while (!q.empty()) {
 		int x = q.front();
 		q.pop();
 
-		if (x == n) {
-			cnt++;
-			continue;
-		}
-
 		for (int i = 0; i < edges[x].size(); i++) {
 			int y = edges[x][i];
-			q.push(y);
+
+			dp[y] = (dp[y] + dp[x]) % (int)(1e9 + 7);
+			indegree[y]--;
+
+			if (indegree[y] == 0) {
+				q.push(y);
+			}
 		}
 	}
 
-	cout << cnt % (int)(1e9 + 7);
+	cout << dp[n];
 
 	return 0;
 }
