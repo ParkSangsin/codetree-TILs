@@ -41,6 +41,12 @@ int main() {
 		}
 
 		cnt += (A[i] + 1) / 2;
+
+		if (r < i + A[i]) {
+			r = i + A[i];
+			p = i;
+		}
+
 	}
 
 	cout << cnt;
