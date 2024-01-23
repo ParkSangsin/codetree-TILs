@@ -13,7 +13,7 @@ int n; // str의 크기
 
 int A[MAX_N];// A[i]: i인덱스를 중심으로 하는 펠린드롬 중 가장 긴 펠린드롬의 길이
 
-int cnt;
+long long cnt;
 
 int main() {
 	cin >> temp;
