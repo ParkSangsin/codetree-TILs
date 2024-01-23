@@ -43,7 +43,7 @@ int main() {
 		}
 	}
 
-	cout << cnt;
+	cout << cnt % (int)(1e9 + 7);
 
 	return 0;
 }
