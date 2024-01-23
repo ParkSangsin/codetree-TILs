@@ -49,14 +49,17 @@ int main() {
 
 	for (int i = 0; i < q; i++) {
 		int a, b, idx;
-		cin >> a >> b;
-		a = 2 * a - 1;
+		cin >> a >> b; // 실제 문자열 temp의 인덱스
+
+		// 위에서 변환한 문자열 str의 인덱스
+		a = 2 * a - 1; 
 		b = 2 * b - 1;
 		
-		idx = (a + b) / 2;
-		// int len = 2 * A[idx] + 1; //
-		//cout << idx << " " << A[idx] << " " << (a + b) / 2 << "\n";
-		if (A[idx] >= (a + b) / 2) cout << "Yes" << "\n";
+		idx = (a + b) / 2; // 중앙 인덱스
+
+		int max_len = 2 * A[idx] + 1; // idx를 중앙으로하는 최장 펠린드롬 길이
+
+		if (max_len >= b - a + 1) cout << "Yes" << "\n";
 		else cout << "No" << "\n";
 	}
 
