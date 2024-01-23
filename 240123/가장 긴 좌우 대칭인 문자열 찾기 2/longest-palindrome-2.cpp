@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define MAX_N 1000020
+#define MAX_N 100000
 
 string temp, str;
 int n; // str의 크기
