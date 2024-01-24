@@ -17,15 +17,15 @@ int main() {
 
     cin >> text >> q;
 
-    // 1번 인덱스부터 시작하기 위해 "#" 추가
-    text = "#" + text;
-    pattern = "#" + pattern;
-
     while (q--) {
         cin >> pattern;
 
         n = text.size();
         m = pattern.size();
+
+            // 1번 인덱스부터 시작하기 위해 "#" 추가
+        text = "#" + text;
+        pattern = "#" + pattern;
 
         // 실패함수 계산
         f[0] = -1; 
