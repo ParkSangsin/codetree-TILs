@@ -44,7 +44,7 @@ int main() {
 				snum &= ~(1 << x); // x번 비트를 꺼라
 			}
 			else {
-				snum &= ~(1 << x); // x번 비트를 꺼라
+				snum |= (1 << x); // x번 비트를 켜라
 			}
 		}
 		else if (str == "clear") {
