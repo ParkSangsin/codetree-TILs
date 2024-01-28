@@ -56,6 +56,7 @@ int main() {
     int res = 1e9;
     for (int i = 0; i < n; i++) {
         res = min(dp[n][i], res);
+        res = min(dp[i][n], res);
     }
 
     cout << res;
