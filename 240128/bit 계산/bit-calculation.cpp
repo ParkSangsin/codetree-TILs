@@ -19,15 +19,18 @@ int main() {
 	for (int t = 0; t < q; t++) {
 		string str;
 		int x;
-		cin >> str >> x;
+		cin >> str;
 
 		if (str == "add") {
+			cin >> x;
 			snum |= (1 << x); // x번 비트를 켜라
 		}
 		else if (str == "delete") {
+			cin >> x;
 			snum &= ~(1 << x); // x번 비트를 꺼라
 		}
 		else if (str == "print") {
+			cin >> x;
 			if ((snum & (1 << x)) != 0) {
 				cout << 1 << "\n";
 			}
@@ -36,6 +39,7 @@ int main() {
 			}
 		}
 		else if (str == "toggle") {
+			cin >> x;
 			if ((snum & (1 << x)) != 0) {
 				snum &= ~(1 << x); // x번 비트를 꺼라
 			}
