@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#define MAX_N 2000
+#define MAX_N 550
 
 int n;
 int ans;
@@ -23,7 +23,7 @@ int minStr(int i, int j) {
 		return dp[i][j];
 	}
 
-	if (i == j) {
+	if (i >= j) {
 		dp[i][j] = 0;
 		return 0;
 	}
