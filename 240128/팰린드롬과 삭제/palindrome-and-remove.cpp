@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#define MAX_N 1000
+#define MAX_N 2000
 
 int n;
 int ans;
