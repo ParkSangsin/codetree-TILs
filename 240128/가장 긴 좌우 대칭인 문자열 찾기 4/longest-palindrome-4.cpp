@@ -3,58 +3,46 @@
 #include <tuple>
 #include <algorithm>
 #include <queue>
+#include <map>
 
 using namespace std;
 
-#define MAX_N 200020
+#define MAX_N 550
 
-string temp, str;
-int n; // str의 크기
+int n;
+int ans = 1;
 
-int A[MAX_N];// A[i]: i인덱스를 중심으로 하는 펠린드롬 중 가장 긴 펠린드롬의 길이
+bool dp[MAX_N][MAX_N]; // dp[i][j]: [i, j] 구간에 있는 문자열이 좌우 대칭인 문자열이면 true
+
+string str;
 
 int main() {
-	cin >> temp;
+	cin >> str;
+	n = str.length();
 
-	// # 넣어서 홀수로 만들기
-	for (int i = 0; i < temp.size(); i++) {
-		str += "#";
-		str += temp[i];
-	}
-	str += "#";
-
-	n = str.size();
-
-	int r = -1, p = -1; // r은 확인된 펠린드롬 범위, p는 r을 만들 수 있는 중심
-
-	for (int i = 0; i < n; i++) {
-		// A 설정 단축
-		if (r >= i) {
-			int ii = p - (i - p); // p를 기준으로 대칭된 좌표
-			A[i] = min(r - i, A[ii]); // r - i 보다 긴 펠린드롬은 장담할 수 없음
-		}
-
-		// i를 중심으로 최대로 뻗기
-		while (i - A[i] - 1 >= 0 && i + A[i] + 1 < n && // 문자열 길이를 벗어나지 않고,
-			str[i - A[i] - 1] == str[i + A[i] + 1]) { // 비교할 양쪽 끝 값이 같다면
-			A[i]++;
-		}
-
-		// p, r 값을 갱신
-		if (i + A[i] > r) {
-			r = i + A[i];
-			p = i;
-		}
-	}
-
-	int ans = 0;
+	// dp 초기값 설정 (구간의 길이가 1인 경우)
 	for (int i = 0; i < n; i++)
-		ans = max(ans, 2 * A[i] + 1);
+		dp[i][i] = true;
 
-	// 처음 주어진 문자열에서 
-	// #을 제외한 부분의 길이가 실제 답이 되기에
-	// 2로 나눴을 때의 몫이 답이 됩니다.
-	cout << ans / 2;
+	// dp 초기값 설정 (구간의 길이가 2인 경우)
+	for (int i = 0; i < n - 1; i++) {
+		if (str[i] == str[i + 1]) {
+			dp[i][i + 1] = true;
+			ans = 2; // ans 갱신
+		}
+	}
+
+	for (int gap = 3; gap <= n; gap++) { // 구갖 길이 지정
+		for (int i = 0; i <= n - gap; i++) { // 시작 위치 지정
+			int j = i + gap - 1; // 끝 위치 지정
+			if (dp[i + 1][j - 1] && str[i] == str[j]) {
+				dp[i][j] = true;
+				ans = gap;
+			}
+		}
+	}
+
+	cout << ans;
 
 	return 0;
 }
