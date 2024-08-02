@@ -59,7 +59,8 @@ int main() {
     }
 
     for (int i = 2; i <= n; i++) {
-        cout << dist[i] << "\n";
+        if (dist[i] = INF) cout << -1 << "\n";
+        else cout << dist[i] << "\n";
     }
 
     return 0;
